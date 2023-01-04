@@ -12,6 +12,8 @@ import { TwoWayBindingComponent } from './components/two-way-binding/two-way-bin
 import { FormsModule } from '@angular/forms';
 import { NgOnChangeComponent } from './components/ng-on-change/ng-on-change.component';
 import { NgforComponent } from './components/ngfor/ngfor.component';
+import { PipeComponent } from './components/pipe/pipe.component';
+import { UpperPipe } from './pipes/upper.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { NgforComponent } from './components/ngfor/ngfor.component';
     DatapassComponent,
     TwoWayBindingComponent,
     NgOnChangeComponent,
-    NgforComponent
+    NgforComponent,
+    PipeComponent,
+    UpperPipe
   ],
   imports: [
     BrowserModule,
