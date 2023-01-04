@@ -64,3 +64,34 @@ console.log("ahjsdjg");
 var p = new Product("name",200,"cat","treu");
 p.topla(5,3);
 
+////INTERFACE ////
+
+interface generalProduct {
+  name: string;
+  price: number;
+  sayHello : () => string;
+  sayHello2():void;
+}
+
+class car implements generalProduct {
+  name: string;
+  price: number;
+
+  constructor (name:string, price:number) {
+    this.name = name;
+    this.price = price;
+  }
+
+
+  sayHello () {
+    return 'Hello World';
+  }
+
+  sayHello2(): void {
+    console.log('Hello World');
+  }
+
+  
+
+}
+
