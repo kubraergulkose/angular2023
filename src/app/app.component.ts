@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularProject';
+  firstName : string = 'Kübra&Ademm'
+
 }
 
 
@@ -24,7 +26,7 @@ export class Product {
   //constructor
 
   constructor(name:string, price:number, category:string, isPublished:string) {
-    this.name = name;
+    this.name = 'Kübra&Adem';
     this.price = price;
     this.category = category;
     this.isPublished = isPublished;
@@ -90,6 +92,9 @@ class car implements generalProduct {
   sayHello2(): void {
     console.log('Hello World');
   }
+
+
+
 
   
 
