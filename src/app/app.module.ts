@@ -10,6 +10,7 @@ import { Example2Component } from './components/example2/example2.component';
 import { DatapassComponent } from './components/datapass/datapass.component';
 import { TwoWayBindingComponent } from './components/two-way-binding/two-way-binding.component';
 import { FormsModule } from '@angular/forms';
+import { NgOnChangeComponent } from './components/ng-on-change/ng-on-change.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FormsModule } from '@angular/forms';
     ExampleComponent,
     Example2Component,
     DatapassComponent,
-    TwoWayBindingComponent
+    TwoWayBindingComponent,
+    NgOnChangeComponent
   ],
   imports: [
     BrowserModule,
