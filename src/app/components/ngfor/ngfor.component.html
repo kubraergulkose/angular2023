@@ -1,0 +1,26 @@
+<h1>NGFor Kullanımı</h1>
+<ng-container *ngFor="let item of employers">
+    <p>{{item}}</p>
+</ng-container>
+
+<ng-container *ngFor="let item of users">
+    <p>{{item.id}}</p>
+    <p>{{item.name}}</p>
+    <p>{{item.email}}</p>
+</ng-container>
+
+<table>
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of users">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.email}}</td>
+        </tr>
+        
+    </tbody>
+</table>
