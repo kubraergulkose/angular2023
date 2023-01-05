@@ -9,9 +9,7 @@ export class AppComponent {
   title = 'AngularProject';
   firstName : string = 'Kübra&Ademm'
 
-  Save(input:string) {
-    console.log(input)
-  }
+
 
 }
 
