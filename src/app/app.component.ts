@@ -9,7 +9,15 @@ export class AppComponent {
   title = 'AngularProject';
   firstName : string = 'Kübra&Ademm'
 
+  Save(input:string) {
+    console.log(input)
+  }
+
 }
+
+
+
+
 
 
 export class Product {
@@ -40,6 +48,7 @@ topla (a1:number, a2:number) {
     console.log(a1+a2);
     return a1 + a2 ;
   }
+
 
 
 

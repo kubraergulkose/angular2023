@@ -14,6 +14,7 @@ import { NgOnChangeComponent } from './components/ng-on-change/ng-on-change.comp
 import { NgforComponent } from './components/ngfor/ngfor.component';
 import { PipeComponent } from './components/pipe/pipe.component';
 import { UpperPipe } from './pipes/upper.pipe';
+import { TemplateDrivenComponent } from './components/template-driven/template-driven.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UpperPipe } from './pipes/upper.pipe';
     NgOnChangeComponent,
     NgforComponent,
     PipeComponent,
-    UpperPipe
+    UpperPipe,
+    TemplateDrivenComponent
   ],
   imports: [
     BrowserModule,

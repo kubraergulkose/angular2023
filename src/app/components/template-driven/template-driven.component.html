@@ -1,0 +1,39 @@
+<h1>Template Driven Forms</h1>
+
+<!-- Değişken Oluşturma -->
+<!-- <input type="text" placeholder="Adınız" #name>
+<button (click)="Save(name.value)">Kaydet</button> -->
+
+<form #formValues="ngForm" (ngSubmit)="login(formValues)">
+    <label for="userName">Kullanıcı Adınız</label>
+    <input #username = 'ngModel' id="userName" type="text" name="userName" [(ngModel)]="loginmodel.username" required minlength="3">
+    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+       <small *ngIf="username.errors?.['required']">İsim alanı zorunludur.</small>
+       <small *ngIf="username.errors?.['minlength']">En az 3 karakter girmelisiniz.</small>
+
+   </div>
+    <div style="border: 1px solid red; padding: 10px;">
+    <ul>
+        <li>Valid Özelliği: {{username.valid}}</li>
+        <li>Invalid Özelliği: {{username.invalid}}</li>
+        <li>Value Özelliği: {{username.value}}</li>
+        <li>Touched Özelliği: {{username.touched}}</li>
+        <li>UnTouched Özelliği: {{username.untouched}}</li>
+        <li>Dirty Özelliği: {{username.dirty}}</li>
+        <li>Pristine Özelliği: {{username.pristine}}</li>
+        <li>Errors Özelliği: {{username.errors | json}}</li>
+    </ul>
+    </div>
+
+
+
+
+    <br>
+    <label for="password">Şifreniz</label>
+    <input id="password" type="password" name="password" [(ngModel)]="loginmodel.password" >
+    <br>
+    <label for="rememberMe">Beni Hatırla</label>
+    <input type="checkbox" name="rememberMe" [(ngModel)] = "loginmodel.rememberMe" id="rememberMe">
+    <br>
+    <button type="submit">Giriş</button>
+</form>
