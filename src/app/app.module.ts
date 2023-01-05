@@ -18,33 +18,32 @@ import { TemplateDrivenComponent } from './components/template-driven/template-d
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { HelperService } from './services/helper.service';
-import { FirstPageComponent } from './pages/first-page/first-page.component';
-import { SecondPageComponent } from './pages/second-page/second-page.component';
+import { PageModule } from "./pages/page.module";
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ExampleComponent,
-    Example2Component,
-    DatapassComponent,
-    TwoWayBindingComponent,
-    NgOnChangeComponent,
-    NgforComponent,
-    PipeComponent,
-    UpperPipe,
-    TemplateDrivenComponent,
-    FirstComponent,
-    SecondComponent,
-    FirstPageComponent,
-    SecondPageComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule
-  ],
-  providers: [HelperService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        ExampleComponent,
+        Example2Component,
+        DatapassComponent,
+        TwoWayBindingComponent,
+        NgOnChangeComponent,
+        NgforComponent,
+        PipeComponent,
+        UpperPipe,
+        TemplateDrivenComponent,
+        FirstComponent,
+        SecondComponent,
+    ],
+    providers: [HelperService],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        FormsModule,
+        PageModule
+    ]
 })
 export class AppModule { }
