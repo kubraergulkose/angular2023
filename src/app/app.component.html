@@ -1,3 +1,11 @@
+<ul>
+    <li><a routerLink="/home">Homepage Component</a></li>
+    <li><a routerLink="/firstpage" [queryParams]="{page:2, pagesize:1}">Birinci Component</a></li>
+    <li><a [routerLink]="['secondpage',2]">İkinci Component</a></li>
+</ul>
+<br>
+Sayfalar
+
 <router-outlet></router-outlet>
 <!-- <app-example></app-example>
 <app-example2></app-example2>
@@ -12,6 +20,5 @@
 <!-- <app-first></app-first>
 <app-second></app-second> -->
 
-<app-first-page></app-first-page>
 
 
