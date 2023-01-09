@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { first, from, Observable, of } from 'rxjs';
 import { PageServiceService } from './pages/page-service.service';
+import { HelperService } from './services/helper.service';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +12,31 @@ export class AppComponent implements OnInit {
   title = 'AngularProject';
   firstName : string = 'Kübra&Ademm'
 
-  constructor(private pageservice: PageServiceService) {
+  constructor(private pageservice: PageServiceService, private helperservice: HelperService) {
     this.pageservice.write();
   }
   ngOnInit(): void {
+
+    let values = of('adem', 5, 15,25,'denemelerce');
+    values.subscribe(x => {
+      console.log(x);
+    })
+
+    this.helperservice.myobservable.subscribe( {
+      next(data){console.log(data)}, // data yayınlandığında çalışır
+      error(err) {console.log(err)}, //hata oluştuğunda çalışır
+      complete() {console.log('data yayınlama işlemi sona erdi.')} //data yayınlama sona erdiğinde çalılır.
+     
+    })
+
+    //filtering operators
+    const myArray = from([785,6,7,25,63,85,12])
+    myArray.pipe(first(z => z>5 && z<100)).subscribe(x => {console.log(x)});
+
     
   }
+
+
 
 
 
