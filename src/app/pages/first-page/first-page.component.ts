@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Post } from 'src/app/models/post';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-first-page',
@@ -8,7 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class FirstPageComponent implements OnInit {
 
-  constructor(private route:Router, private activatedrouter: ActivatedRoute) {}
+  post: Post | undefined;
+
+  constructor(private route:Router, private activatedrouter: ActivatedRoute, private api: ApiService) {}
 
   ngOnInit(): void {
     let page = this.activatedrouter.snapshot.queryParamMap.get('page');
@@ -19,6 +23,13 @@ export class FirstPageComponent implements OnInit {
     this.activatedrouter.queryParamMap.subscribe(x => {
       console.log(x);
     })
+
+    this.api.getSinglePost(2).subscribe(x => {
+      this.post = x;
+      console.log('benim tekil postum');
+      console.log(this.post);
+    })
+
   }
 
   goSecondPage() {

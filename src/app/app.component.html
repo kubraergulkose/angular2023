@@ -23,3 +23,17 @@ Sayfalar -->
 
 
 <h2>Anasayfa</h2>
+<!-- <div>User Id: {{user?.userId}}</div>
+<div>Id: {{user?.userId}}</div>
+<div>Title: {{user?.title}}</div>
+<div>Status Completed: {{user?.completed}}</div> -->
+
+<div *ngFor="let item of post">
+    <h3>User Id: {{item.userId}}</h3>
+    <h3>Id: {{item.id}}</h3>
+    <h3>Title: {{item.title}}</h3>
+    <h3>Body: {{item.body}}</h3>
+    <div style="border: 5px solid red"></div>
+</div>
+
+<app-first-page></app-first-page>

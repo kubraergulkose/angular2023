@@ -1,6 +1,10 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { first, from, Observable, of } from 'rxjs';
+import { Post } from './models/post';
+import { User2 } from './models/user2';
 import { PageServiceService } from './pages/page-service.service';
+import { ApiService } from './services/api.service';
 import { HelperService } from './services/helper.service';
 
 @Component({
@@ -11,27 +15,42 @@ import { HelperService } from './services/helper.service';
 export class AppComponent implements OnInit {
   title = 'AngularProject';
   firstName : string = 'Kübra&Ademm'
+  user: User2 | undefined;
+  post: Post [] = [];
 
-  constructor(private pageservice: PageServiceService, private helperservice: HelperService) {
+  constructor(private pageservice: PageServiceService, private helperservice: HelperService, private http : HttpClient, private api: ApiService ) {
     this.pageservice.write();
   }
   ngOnInit(): void {
 
-    let values = of('adem', 5, 15,25,'denemelerce');
-    values.subscribe(x => {
+    // let values = of('adem', 5, 15,25,'denemelerce');
+    // values.subscribe(x => {
+    //   console.log(x);
+    // })
+
+    // this.helperservice.myobservable.subscribe( {
+    //   next(data){console.log(data)}, // data yayınlandığında çalışır
+    //   error(err) {console.log(err)}, //hata oluştuğunda çalışır
+    //   complete() {console.log('data yayınlama işlemi sona erdi.')} //data yayınlama sona erdiğinde çalılır.
+     
+    // })
+
+    // //filtering operators
+    // const myArray = from([785,6,7,25,63,85,12])
+    // myArray.pipe(first(z => z>5 && z<100)).subscribe(x => {console.log(x)});
+
+    this.http.get<User2>('https://jsonplaceholder.typicode.com/todos/5').subscribe(x => {
+      console.log(x)
+      this.user = x;
+    })
+
+   this.api.getPostList().subscribe(x => {
+      this.post = x;
+      console.log('Postlarım');
       console.log(x);
     })
 
-    this.helperservice.myobservable.subscribe( {
-      next(data){console.log(data)}, // data yayınlandığında çalışır
-      error(err) {console.log(err)}, //hata oluştuğunda çalışır
-      complete() {console.log('data yayınlama işlemi sona erdi.')} //data yayınlama sona erdiğinde çalılır.
-     
-    })
 
-    //filtering operators
-    const myArray = from([785,6,7,25,63,85,12])
-    myArray.pipe(first(z => z>5 && z<100)).subscribe(x => {console.log(x)});
 
     
   }
